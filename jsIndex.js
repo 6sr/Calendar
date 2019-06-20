@@ -25,7 +25,9 @@ function displayCurrTime() {
 setInterval(displayCurrTime, 500);
 
 function setDefaultInputDate() {
-	//d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+	var tempDate = new Date();
+	tempDate.setMinutes(tempDate.getMinutes() - tempDate.getTimezoneOffset());
+	//console.log(tempDate.toJSON());
 		//The getTimezoneOffset() method returns the time difference between UTC time and local time, in minutes.
 		//For example, If your time zone is GMT+2, -120 will be returned.
 	
@@ -33,7 +35,8 @@ function setDefaultInputDate() {
 		//It changes date of d to 330 minutes to curr date as GMT+5:30
 	
 	//d.setMinutes(d.getMinutes());
-	document.getElementById("gotoDate").value = d.toJSON().slice(0,10);
+		//This changes default date of input 05:30 hrs after 00:00 hrs
+	document.getElementById("gotoDate").value = tempDate.toJSON().slice(0,10);
 }
 setDefaultInputDate();
 
@@ -43,6 +46,8 @@ function gotoDate() {
 	currYearDisp = parseInt(document.getElementById("gotoDate").value.split("-")[0]);
 	document.getElementById("currMonth").innerHTML = monthList[currMonthDisp] + "  " + currYearDisp;
 	setDateList();
+	var liNumGoto = getFirstDayOfMonth() + currDateDisp - 1;
+	document.getElementsByClassName("days")[0].getElementsByTagName("li")[liNumGoto].getElementsByTagName("span")[0].classList.add("active");
 }
 
 function setDateList() {
@@ -65,7 +70,30 @@ function setDateList() {
 }
 
 function getFirstDayOfMonth() {
-	var firstDay = new Date(currYearDisp,currMonthDisp,1);
+	var firstDay;
+	if(currYearDisp < 100) {
+		if(currYearDisp < 10) {
+			if(currMonthDisp < 10) {
+				firstDay = new Date("000" + currYearDisp + "-0" + (currMonthDisp + 1) + "-01");
+				console.log("000" + currYearDisp + "-0" + (currMonthDisp + 1) + "-01 lol");
+			}
+			else {
+				firstDay = new Date("000" + currYearDisp + "-" + (currMonthDisp + 1) + "-01");
+			}
+		}
+		else {
+			if(currMonthDisp < 10) {
+				firstDay = new Date("00" + currYearDisp + "-0" + (currMonthDisp + 1) + "-01");
+			}
+			else {
+				firstDay = new Date("00" + currYearDisp + "-" + (currMonthDisp + 1) + "-01");
+			}
+		}
+	}
+	else {
+		firstDay = new Date(currYearDisp,currMonthDisp,1);
+	}
+	//console.log(firstDay);
 	//var firstDay = new Date(0001,01,01);
 		//Year 1-99 is treated as 1901-1999
 	//document.getElementById("currMonth").innerHTML = firstDay.getDay();
@@ -102,6 +130,7 @@ function handleActiveClass() {
 		var todayLiTag = document.getElementsByClassName("days")[0].getElementsByTagName("li")[i].getElementsByTagName("span")[0].classList;
 		if(todayLiTag.contains("active")) {
 			todayLiTag.remove("active");
+			document.getElementsByClassName("days")[0].getElementsByTagName("li")[i].getElementsByTagName("span")[0].style.border = "0px";
 		}
 	}
 	
@@ -113,9 +142,10 @@ function handleActiveClass() {
 	//console.log(d.getFullYear());
 	//	Adding active class to today date
 	var curr = new Date();
-	if(currDateDisp == curr.getDate()  && currMonthDisp == curr.getMonth() && currYearDisp == curr.getFullYear()) {
+	if(currMonthDisp == curr.getMonth() && currYearDisp == curr.getFullYear()) {
 		//console.log("lol");
-		var liNum = getFirstDayOfMonth() + currDateDisp - 1;
-		document.getElementsByClassName("days")[0].getElementsByTagName("li")[liNum].getElementsByTagName("span")[0].classList.add("active");
+		var liNumToday = getFirstDayOfMonth() + d.getDate() - 1;
+		document.getElementsByClassName("days")[0].getElementsByTagName("li")[liNumToday].getElementsByTagName("span")[0].classList.add("active");
+		document.getElementsByClassName("days")[0].getElementsByTagName("li")[liNumToday].getElementsByTagName("span")[0].style.border = "1px solid black";
 	}
 }

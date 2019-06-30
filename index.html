@@ -5,7 +5,17 @@
 </head>
 <body onload="displayCurrTime()">
 
-<h1 id="currTime" style="text-align:center;color:#1abc9c;" onclick="getFirstDayOfMonth()"></h1>
+<!--
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+-->
+<ul style="list-style-type: none;margin: 0;padding: 1vw;">
+	<li style="float:right"><button onclick="signup()" class="gotoBtn" style="text-decoration: none;margin-right:0;">Signup</a></li>
+	<li style="float:right;padding:0 1vw;"><button onclick="signin()" class="gotoBtn" style="text-decoration: none;">Signin</a></li>
+</ul>
 
 <input type="date" id="gotoDate" />
 <button class="gotoBtn" onclick="gotoDate()">Goto Date</button>
@@ -13,6 +23,7 @@
 <br><br>
 <div class="month">
 	<ul>
+		<li><span id="currTime" style="color:#ffffff;font-size:2em;" onclick="getFirstDayOfMonth()"></span></li>
 		<li class="prev" onclick="prevMonth()">&#10094;</li>
 		<li class="next" onclick="nextMonth()">&#10095;</li>
 		<li>
@@ -72,5 +83,13 @@
 </ul>
 
 	<script type="text/javascript" src="jsIndex.js"></script>
+	<script>
+		function signin() {
+			document.location = 'signin.php';
+		}
+		function signup() {
+			document.location = 'signup.php';
+		}
+	</script>
 </body>
 </html>

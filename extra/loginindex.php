@@ -13,6 +13,12 @@ Front end Back end
 <body>
 <?php
 if(isset($_SESSION['username'])) {
+	include "index.php";
+	echo "
+		<br>
+		<button class='gotoBtn'>Add Note</button>
+	";
+	
 	$username=$_SESSION['username'];
 	$query13="select * from loginCalendar where username='$username'";
 	$runquery13=mysqli_query($con,$query13);
@@ -54,7 +60,8 @@ if(isset($_SESSION['username'])) {
     }
 }
 else{
-	echo "Welcome admin";
+	include "topBar.php";
+	include "index.php";
 }
 
 ?>

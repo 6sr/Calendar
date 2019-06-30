@@ -5,19 +5,31 @@
 
 <!DOCTYPE html> 
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Animated Signin Form</title>
-        <link rel="stylesheet" href="signin.css">
-    </head>
+	<head>
+		<meta charset="utf-8">
+		<title>SR | Calendar - Sign In</title>
+		<link rel="stylesheet" href="signin.css">
+		<link rel="icon" type="image/jpg" href="SRLogo.jpg" />
+	</head>
     <body>
+		<button onClick='home()' style='border-radius: 10%;
+										padding:10px;
+										background: #1abc9c;
+										color: white;'>Go to Home page</button>
+		
         <form class="box" method="post" enctype="multipart/form-data">
 			<h1>Signin Page</h1>
-			<input type="text" name="username" placeholder="Username">
-			<input type="password" name="password" placeholder="Password">
+			<input type="text" name="username" placeholder="Username" autocomplete="off">
+			<input type="password" name="password" placeholder="Password" autocomplete="off">
 			<input type="submit" name="SignIn" value="Signin">
 			<a href="signup.php" style="text-decoration:none"><input type="button" name="Signup" value="Signup"></a>
         </form>
+		<script>
+			function home() {
+				document.location = 'index.php';
+			}
+		</script>
+
     </body>
 
 </html>
@@ -33,8 +45,8 @@ if(isset($_POST['SignIn'])){
 		/*$writeFile = fopen("userFile/".$queryObj['id'].".csv",'a');
 		$readFile = fopen("userFile/".$queryObj['id'].".csv",'r');*/
 		
-		/* header('location:Mainpage.php'); */
-		echo "<script type='text/javascript'> document.location = 'Mainpage.php'; </script>";
+		/* header('location:index.php'); */
+		echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
 		$_SESSION['username']=$username;
 	}
 	else{

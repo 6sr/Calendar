@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/jpg" href="SRLogo.jpg" />
 </head>
 <body onload="displayCurrTime()">
-
-<!--
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
--->
-<ul style="list-style-type: none;margin: 0;padding: 1vw;">
-	<li style="float:right"><button onclick="signup()" class="gotoBtn" style="text-decoration: none;margin-right:0;">Signup</a></li>
-	<li style="float:right;padding:0 1vw;"><button onclick="signin()" class="gotoBtn" style="text-decoration: none;">Signin</a></li>
-</ul>
 
 <input type="date" id="gotoDate" />
 <button class="gotoBtn" onclick="gotoDate()">Goto Date</button>
@@ -44,7 +34,7 @@
 
 <ul class="days">  
 	<li><span></span></li>
-	<li><span></span></li>
+	<li><span onClick="addOnDateClick()"></span></li>
 	<li><span></span></li>
 	<li><span></span></li>
 	<li><span></span></li>
@@ -83,13 +73,5 @@
 </ul>
 
 	<script type="text/javascript" src="jsIndex.js"></script>
-	<script>
-		function signin() {
-			document.location = 'signin.php';
-		}
-		function signup() {
-			document.location = 'signup.php';
-		}
-	</script>
 </body>
 </html>

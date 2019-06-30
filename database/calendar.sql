@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2019 at 08:38 PM
+-- Generation Time: Jul 01, 2019 at 12:10 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -41,7 +41,8 @@ CREATE TABLE `logincalendar` (
 
 INSERT INTO `logincalendar` (`id`, `username`, `mail`, `password`) VALUES
 (1, 'SRphoto', 'sroy895@gmail.com', '$2y$10$j5M59e54D8RvznMSjlAATuCMBzIdh/hgLAGDyU.UFUtHaOd4Uwma2'),
-(2, 'SRnophoto', 'sroy8951@gmail.com', '$2y$10$s/osZYcPoJkdt9fsrjlyUO8OyuzNTO17T/U/B/SQDkKm6lVQaIiY6');
+(2, 'SRnophoto', 'sroy8951@gmail.com', '$2y$10$s/osZYcPoJkdt9fsrjlyUO8OyuzNTO17T/U/B/SQDkKm6lVQaIiY6'),
+(3, 'SRpdf', 'sroy8952@gmail.com', '$2y$10$UVUfly1/VAe0sKByE.QqWuSFkjJH1wAqyFt5Ocelq/ER8wS2MuMR2');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +62,7 @@ ALTER TABLE `logincalendar`
 -- AUTO_INCREMENT for table `logincalendar`
 --
 ALTER TABLE `logincalendar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

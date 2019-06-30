@@ -8,10 +8,6 @@ var currYearDisp = d.getFullYear();	// YYYY - number
 document.getElementById("currMonth").innerHTML = monthList[currMonthDisp] + "  " + currYearDisp;
 setDateList();
 
-function addOnDateClick(elem) {
-	elem.classList.add('active');
-}
-
 function displayCurrTime() {
 	function checkTime(i) {
 		if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
@@ -129,11 +125,6 @@ function nextMonth() {
 	setDateList();
 }
 
-document.onclick = function(event) {
-         var target = event.target || event.srcElement;
-         target.style.background = '#cf5c3f';
-        };
-		
 function handleActiveClass() {
 	for(var i = 0;i < 37;i++) {
 		var todayLiTag = document.getElementsByClassName("days")[0].getElementsByTagName("li")[i].getElementsByTagName("span")[0].classList;

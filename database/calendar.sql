@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2019 at 12:10 AM
+-- Generation Time: Aug 09, 2019 at 08:40 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -25,10 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logincalendar`
+-- Table structure for table `tasks`
 --
 
-CREATE TABLE `logincalendar` (
+CREATE TABLE `tasks` (
+  `task_id` int(11) NOT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` text NOT NULL,
   `mail` text NOT NULL,
@@ -36,22 +50,20 @@ CREATE TABLE `logincalendar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `logincalendar`
---
-
-INSERT INTO `logincalendar` (`id`, `username`, `mail`, `password`) VALUES
-(1, 'SRphoto', 'sroy895@gmail.com', '$2y$10$j5M59e54D8RvznMSjlAATuCMBzIdh/hgLAGDyU.UFUtHaOd4Uwma2'),
-(2, 'SRnophoto', 'sroy8951@gmail.com', '$2y$10$s/osZYcPoJkdt9fsrjlyUO8OyuzNTO17T/U/B/SQDkKm6lVQaIiY6'),
-(3, 'SRpdf', 'sroy8952@gmail.com', '$2y$10$UVUfly1/VAe0sKByE.QqWuSFkjJH1wAqyFt5Ocelq/ER8wS2MuMR2');
-
---
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `logincalendar`
+-- Indexes for table `tasks`
 --
-ALTER TABLE `logincalendar`
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`task_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -59,10 +71,26 @@ ALTER TABLE `logincalendar`
 --
 
 --
--- AUTO_INCREMENT for table `logincalendar`
+-- AUTO_INCREMENT for table `tasks`
 --
-ALTER TABLE `logincalendar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `tasks`
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

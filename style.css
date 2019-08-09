@@ -3,105 +3,107 @@ ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
 .month {
-  padding: 70px 25px;
-  /*width: 100%;*/
-  background: #1abc9c;
-  text-align: center;
+    padding: 70px 25px;
+    /*width: 100%;*/
+    background: #1abc9c;
+    text-align: center;
 }
 .weekdays li,
 .prev, .next,
 .days li {
-	cursor: pointer;
+    cursor: pointer;
 }
 .month ul {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .month ul li {
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
 .month .prev {
-  float: left;
-  padding-top: 10px;
+    float: left;
+    padding-top: 10px;
 }
 
 .month .next {
-  float: right;
-  padding-top: 10px;
+    float: right;
+    padding-top: 10px;
 }
 
 .weekdays {
-  margin: 0;
-  padding: 10px 0;
-  background-color: #ddd;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
 }
 
 .weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: #666;
-  text-align: center;
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
 }
 
 .days {
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
 }
 
 .days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.6%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
 }
 
 .days li .active,
 .days li span:hover {
-  padding: 5px;
-  background: #1abc9c;
-  color: white !important
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
 }
 
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
-  .weekdays li, .days li {width: 13.1%;}
+    .weekdays li, .days li {width: 13.1%;}
 }
 
 @media screen and (max-width: 420px) {
-  .weekdays li, .days li {width: 12.5%;}
-  .days li .active {padding: 2px;}
-  #currTime { padding-bottom:5px; }
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+    #currTime { padding-bottom:5px; }
 }
 
 @media screen and (max-width: 290px) {
-  .weekdays li, .days li {width: 12.2%;}
+    .weekdays li, .days li {width: 12.2%;}
 }
 
 .gotoBtn {
-	border-radius: 10%;
-	padding:10px;
-	background: #1abc9c;
-	color: white;
+    border-radius: 10%;
+    padding:10px;
+    background: #1abc9c;
+    color: white;
 }
 #gotoDate {
-	margin-left:1vw;
-	padding:5px;
-	border-radius: 1%;
+    margin-left:1vw;
+    padding:5px;
+    border-radius: 1%;
     color: #1abc9c;
     font: 1em/1.25em Arial, Helvetica, sans-serif;
 }
 .plusBtn {
-	font-size:3vw;
-	border-radius: 10%;
-	background: #1abc9c;
-	color: white;
+    font-size:3vw;
+    border-radius: 10%;
+    background: #1abc9c;
+    color: white;
 }
+
+
